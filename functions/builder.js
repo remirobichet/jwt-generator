@@ -31,6 +31,9 @@ exports.handler = async event => {
   const response = jwt.encode(payload, signatureKey, alg)
   return {
     statusCode: 200,
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({ jwt : response })
   }
 }
